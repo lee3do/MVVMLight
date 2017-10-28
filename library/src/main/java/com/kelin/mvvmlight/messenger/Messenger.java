@@ -1,7 +1,6 @@
 package com.kelin.mvvmlight.messenger;
 
 
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,8 +8,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import rx.functions.Action0;
-import rx.functions.Action1;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+
 
 /**
  * Created by kelin on 15-8-14.
@@ -46,7 +46,7 @@ public class Messenger {
      *                  you can also register with Activity context and also in onDestroy to unregister.
      * @param action   do something on message received
      */
-    public void register(Object recipient, Action0 action) {
+    public void register(Object recipient, Action action) {
         register(recipient, null, false, action);
     }
 
@@ -58,7 +58,7 @@ public class Messenger {
      * @param receiveDerivedMessagesToo whether Derived class of recipient can receive the message
      * @param action   do something on message received
      */
-    public void register(Object recipient, boolean receiveDerivedMessagesToo, Action0 action) {
+    public void register(Object recipient, boolean receiveDerivedMessagesToo, Action action) {
         register(recipient, null, receiveDerivedMessagesToo, action);
     }
 
@@ -70,7 +70,7 @@ public class Messenger {
      * @param token   register with a unique token,when a messenger send a msg with same token,it will receive this msg
      * @param action  do something on message received
      */
-    public void register(Object recipient, Object token, Action0 action) {
+    public void register(Object recipient, Object token, Action action) {
         register(recipient, token, false, action);
     }
     /**
@@ -82,7 +82,7 @@ public class Messenger {
      * @param receiveDerivedMessagesToo whether Derived class of recipient can receive the message
      * @param action  do something on message received
      */
-    public void register(Object recipient, Object token, boolean receiveDerivedMessagesToo, Action0 action) {
+    public void register(Object recipient, Object token, boolean receiveDerivedMessagesToo, Action action) {
 
         Type messageType = NotMsgType.class;
 
@@ -120,41 +120,41 @@ public class Messenger {
 
     /**
      *
-     * @param recipient {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Action0)}
+     * @param recipient {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Action)}
      * @param tClass class of T
      * @param action this action has one params that type of tClass
      * @param <T> message data type
      */
-    public <T> void register(Object recipient, Class<T> tClass, Action1<T> action) {
+    public <T> void register(Object recipient, Class<T> tClass, Consumer<T> action) {
         register(recipient, null, false, action, tClass);
     }
 
     /**
-     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Class, Action1)}
+     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Class, Consumer)}
      * @param recipient receiver of message
      * @param receiveDerivedMessagesToo whether derived class of recipient can receive the message
      * @param tClass class of T
      * @param action this action has one params that type of tClass
      * @param <T> message data type
      */
-    public <T> void register(Object recipient, boolean receiveDerivedMessagesToo, Class<T> tClass, Action1<T> action) {
+    public <T> void register(Object recipient, boolean receiveDerivedMessagesToo, Class<T> tClass, Consumer<T> action) {
         register(recipient, null, receiveDerivedMessagesToo, action, tClass);
     }
 
     /**
-     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Action0)}
+     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Action)}
      * @param recipient receiver of message
      * @param token register with a unique token,when a messenger send a msg with same token,it will receive this msg
      * @param tClass class of T for Action1
      * @param action this action has one params that type of tClass
      * @param <T> message data type
      */
-    public <T> void register(Object recipient, Object token, Class<T> tClass, Action1<T> action) {
+    public <T> void register(Object recipient, Object token, Class<T> tClass, Consumer<T> action) {
         register(recipient, token, false, action, tClass);
     }
 
     /**
-     *  see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Class, Action1)}
+     *  see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Class, Consumer)}
      * @param recipient receiver of message
      * @param token register with a unique token,when a messenger send a msg with same token,it will receive this msg
      * @param receiveDerivedMessagesToo  whether derived class of recipient can receive the message
@@ -162,7 +162,7 @@ public class Messenger {
      * @param tClass class of T for Action1
      * @param <T> message data type
      */
-    public <T> void register(Object recipient, Object token, boolean receiveDerivedMessagesToo, Action1<T> action, Class<T> tClass) {
+    public <T> void register(Object recipient, Object token, boolean receiveDerivedMessagesToo, Consumer<T> action, Class<T> tClass) {
 
         Type messageType = tClass;
 
@@ -334,7 +334,7 @@ public class Messenger {
 
     private static <T> void unregisterFromLists(
             Object recipient,
-            Action1<T> action,
+            Consumer<T> action,
             HashMap<Type, List<WeakActionAndToken>> lists,
             Class<T> tClass) {
         Type messageType = tClass;
@@ -362,7 +362,7 @@ public class Messenger {
 
     private static void unregisterFromLists(
             Object recipient,
-            Action0 action,
+            Action action,
             HashMap<Type, List<WeakActionAndToken>> lists
     ) {
         Type messageType = NotMsgType.class;
@@ -392,7 +392,7 @@ public class Messenger {
     private static <T> void unregisterFromLists(
             Object recipient,
             Object token,
-            Action1<T> action,
+            Consumer<T> action,
             HashMap<Type, List<WeakActionAndToken>> lists, Class<T> tClass) {
         Type messageType = tClass;
 
@@ -422,7 +422,7 @@ public class Messenger {
     private static void unregisterFromLists(
             Object recipient,
             Object token,
-            Action0 action,
+            Action action,
             HashMap<Type, List<WeakActionAndToken>> lists) {
         Type messageType = NotMsgType.class;
 
