@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.webview;
+package io.itit.mvvmlight.bindingadapter.webview;
 
 import android.databinding.BindingAdapter;
 import android.text.TextUtils;

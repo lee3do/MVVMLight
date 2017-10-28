@@ -1,10 +1,10 @@
-package com.kelin.mvvmlight.bindingadapter.recyclerview;
+package io.itit.mvvmlight.bindingadapter.recyclerview;
 
 import android.databinding.BindingAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 import java.util.concurrent.TimeUnit;
 

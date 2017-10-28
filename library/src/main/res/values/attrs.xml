@@ -9,22 +9,46 @@
     <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
     <attr name="adapter" format="reference" />
 
+    <attr name="layout_width" format="integer"/>
+    <attr name="layout_height" format="integer"/>
+    <attr name="animatedVisibility" format="integer"/>
+    <attr name="refresh_label" format="string"/>
+    <attr name="local_uri" format="string"/>
+    <attr name="longClick" format="reference"/>
+    <attr name="spinner_items" format="reference"/>
+    <attr name="afterRefresh" format="reference"/>
+    <attr name="after_select" format="reference"/>
+    <attr name="img_src" format="integer"/>
+    <attr name="background_color" format="integer"/>
+
     <attr name="onScrollChangeCommand" format="reference" />
     <attr name="onScrollStateChangedCommand" format="reference" />
     <attr name="uri" format="string" />
     <attr name="onTouchCommand" format="reference" />
 
-    <!-- require ReplyCommand {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view click event. -->
+    <!-- require ReplyCommand {@lReplyCommandmand } to deal with view click event. -->
     <attr name="clickCommand" format="reference" />
-    <!-- require ReplyCommand<Boolean> {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view focus change event.
+    <!-- require ReplyCommand<Boolean> {@lReplyCommandmand } to deal with view focus change event.
      ReplyCommand would has params which means if view hasFocus.-->
     <attr name="onFocusChangeCommand" format="reference" />
 
-    <declare-styleable name="View">
 
-        <!-- require ReplyCommand {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view click event. -->
+
+    <declare-styleable name="Spinner">
+        <attr name="after_select" />
+        <attr name="spinner_items" />
+    </declare-styleable>
+
+    <declare-styleable name="View">
+        <attr name="longClick" />
+        <attr name="afterRefresh" />
+        <attr name="background_color" />
+        <attr name="layout_width" />
+        <attr name="layout_height" />
+        <attr name="refresh_label" />
+        <!-- require ReplyCommand {@lReplyCommandmand } to deal with view click event. -->
         <attr name="clickCommand" />
-        <!-- require ReplyCommand<Boolean> {@link com.kelin.mvvmlight.command.ReplyCommand } to deal with view focus change event.
+        <!-- require ReplyCommand<Boolean> {@lReplyCommandmand } to deal with view focus change event.
          ReplyCommand would has params which means if view hasFocus.-->
         <attr name="onFocusChangeCommand" />
         <!-- require ReplyCommand<MotionEvent> -->
@@ -66,6 +90,9 @@
 
 
     <declare-styleable name="ImageView">
+        <attr name="local_uri"/>
+        <attr name="animatedVisibility" />
+        <attr name="img_src" />
         <attr name="clickCommand" />
         <!--  load bitmap from uri(string type) -->
         <attr name="uri" />
@@ -74,9 +101,9 @@
         <!--height for ResizeOptions (use Fresco to load bitmap). -->
         <attr name="request_height" format="integer" />
         <attr name="placeholderImageRes" format="reference|color" />
-        <!--  require ReplyCommand<Bitmap> See {@link @link com.kelin.mvvmlight.command.ReplyCommand} -->
+        <!--  require ReplyCommand<Bitmap> See {@link @lReplyCommandmand} -->
         <attr name="onSuccessCommand" format="reference" />
-        <!--require ReplyCommand<CloseableReference<CloseableImage>> See {@link com.kelin.mvvmlight.command.ReplyCommand} -->
+        <!--require ReplyCommand<CloseableReference<CloseableImage>> See {@lReplyCommandmand} -->
         <attr name="onFailureCommand" format="reference" />
 
     </declare-styleable>

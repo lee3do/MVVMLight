@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.messenger;
+package io.itit.mvvmlight.messenger;
 
 
 import java.lang.reflect.Type;
@@ -120,7 +120,7 @@ public class Messenger {
 
     /**
      *
-     * @param recipient {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Action)}
+     * @param recipient {@link Messenger#register(Object, Action)}
      * @param tClass class of T
      * @param action this action has one params that type of tClass
      * @param <T> message data type
@@ -130,7 +130,7 @@ public class Messenger {
     }
 
     /**
-     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Class, Consumer)}
+     * see {@link Messenger#register(Object, Class, Consumer)}
      * @param recipient receiver of message
      * @param receiveDerivedMessagesToo whether derived class of recipient can receive the message
      * @param tClass class of T
@@ -142,7 +142,7 @@ public class Messenger {
     }
 
     /**
-     * see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Action)}
+     * see {@link Messenger#register(Object, Object, Action)}
      * @param recipient receiver of message
      * @param token register with a unique token,when a messenger send a msg with same token,it will receive this msg
      * @param tClass class of T for Action1
@@ -154,7 +154,7 @@ public class Messenger {
     }
 
     /**
-     *  see {@link com.kelin.mvvmlight.messenger.Messenger#register(Object, Object, Class, Consumer)}
+     *  see {@link Messenger#register(Object, Object, Class, Consumer)}
      * @param recipient receiver of message
      * @param token register with a unique token,when a messenger send a msg with same token,it will receive this msg
      * @param receiveDerivedMessagesToo  whether derived class of recipient can receive the message

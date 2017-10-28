@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.messenger;
+package io.itit.mvvmlight.messenger;
 
 import java.lang.ref.WeakReference;
 

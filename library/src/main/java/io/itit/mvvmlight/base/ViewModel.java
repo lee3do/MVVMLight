@@ -1,6 +1,4 @@
-package com.kelin.mvvmlight.base;
-
-import android.view.View;
+package io.itit.mvvmlight.base;
 
 /**
  * Created by kelin on 16-3-15.

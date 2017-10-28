@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.viewgroup;
+package io.itit.mvvmlight.bindingadapter.viewgroup;
 
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
@@ -7,7 +7,7 @@ import android.databinding.ViewDataBinding;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.kelin.mvvmlight.base.ViewModel;
+import io.itit.mvvmlight.base.ViewModel;
 
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 

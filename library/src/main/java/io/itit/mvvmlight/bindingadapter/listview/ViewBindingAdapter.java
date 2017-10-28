@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.listview;
+package io.itit.mvvmlight.bindingadapter.listview;
 
 import android.databinding.BindingAdapter;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 import java.util.concurrent.TimeUnit;
 

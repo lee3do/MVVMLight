@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.edittext;
+package io.itit.mvvmlight.bindingadapter.edittext;
 
 import android.content.Context;
 import android.text.Editable;
@@ -6,7 +6,7 @@ import android.text.TextWatcher;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 /**
  * Created by kelin on 16-3-24.

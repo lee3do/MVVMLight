@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.image;
+package io.itit.mvvmlight.bindingadapter.image;
 
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.AnimationDrawable;

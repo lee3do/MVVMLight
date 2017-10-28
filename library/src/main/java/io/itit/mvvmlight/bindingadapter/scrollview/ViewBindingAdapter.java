@@ -1,11 +1,11 @@
-package com.kelin.mvvmlight.bindingadapter.scrollview;
+package io.itit.mvvmlight.bindingadapter.scrollview;
 
 import android.databinding.BindingAdapter;
 import android.support.v4.widget.NestedScrollView;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 /**
  * Created by kelin on 16-3-24.
@@ -13,8 +13,7 @@ import com.kelin.mvvmlight.command.ReplyCommand;
 public final class ViewBindingAdapter {
 
     @BindingAdapter({"onScrollChangeCommand"})
-    public static void onScrollChangeCommand(final NestedScrollView nestedScrollView, final
-    ReplyCommand<NestScrollDataWrapper> onScrollChangeCommand) {
+    public static void onScrollChangeCommand(final NestedScrollView nestedScrollView, final ReplyCommand<NestScrollDataWrapper> onScrollChangeCommand) {
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int

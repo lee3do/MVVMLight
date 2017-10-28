@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.command;
+package io.itit.mvvmlight.command;
 
 
 import java.util.concurrent.Callable;

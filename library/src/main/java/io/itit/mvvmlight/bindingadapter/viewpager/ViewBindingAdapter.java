@@ -1,9 +1,9 @@
-package com.kelin.mvvmlight.bindingadapter.viewpager;
+package io.itit.mvvmlight.bindingadapter.viewpager;
 
 import android.databinding.BindingAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 /**
  * Created by kelin on 16-6-1.

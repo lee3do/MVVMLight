@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.view;
+package io.itit.mvvmlight.bindingadapter.view;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
-import com.kelin.mvvmlight.command.ResponseCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ResponseCommand;
 
 /**
  * Created by kelin on 16-3-24.

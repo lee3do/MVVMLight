@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.swiperefresh;
+package io.itit.mvvmlight.bindingadapter.swiperefresh;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
@@ -8,7 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
