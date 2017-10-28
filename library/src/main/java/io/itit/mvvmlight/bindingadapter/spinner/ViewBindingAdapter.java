@@ -1,4 +1,4 @@
-package com.kelin.mvvmlight.bindingadapter.spinner;
+package io.itit.mvvmlight.bindingadapter.spinner;
 
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableList;
@@ -7,8 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.kelin.mvvmlight.R;
-import com.kelin.mvvmlight.command.ReplyCommand;
+import io.itit.mvvmlight.R;
+import io.itit.mvvmlight.command.ReplyCommand;
 
 /**
  * Created by kelin on 16-4-26.
