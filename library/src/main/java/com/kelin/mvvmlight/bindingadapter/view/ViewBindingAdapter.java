@@ -1,8 +1,12 @@
 package com.kelin.mvvmlight.bindingadapter.view;
 
+import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.kelin.mvvmlight.command.ResponseCommand;
@@ -11,6 +15,19 @@ import com.kelin.mvvmlight.command.ResponseCommand;
  * Created by kelin on 16-3-24.
  */
 public final class ViewBindingAdapter {
+
+    private static float sDensity = 0;
+    public static int dipToPixel( int nDip,Context context) {
+        if (sDensity == 0) {
+            final WindowManager wm = (WindowManager) context
+                    .getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics dm = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(dm);
+            sDensity = dm.density;
+        }
+        return (int) (sDensity * nDip);
+    }
+
 
     @BindingAdapter({"clickCommand"})
     public static void clickCommand(View view, final ReplyCommand clickCommand) {
@@ -32,6 +49,14 @@ public final class ViewBindingAdapter {
         } else {
             view.clearFocus();
         }
+    }
+
+    @BindingAdapter({"longClick"})
+    public static void longClick(View view, final ReplyCommand clickCommand) {
+        view.setOnLongClickListener(view1 -> {
+            clickCommand.execute();
+            return false;
+        });
     }
 
     @BindingAdapter({"onFocusChangeCommand"})
@@ -57,6 +82,27 @@ public final class ViewBindingAdapter {
                 return false;
             }
         });
+    }
+
+    @BindingAdapter("layout_width")
+    public static void setLayoutWidth(View view, int width) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = dipToPixel(width,view.getContext());
+        view.setLayoutParams(layoutParams);
+    }
+
+    @BindingAdapter("background_color")
+    public static void backgroundColor(View view, int color) {
+        view.setBackgroundColor(color);
+    }
+
+
+
+    @BindingAdapter("layout_height")
+    public static void setLayoutHeight(View view, int width) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.height = dipToPixel(width,view.getContext());
+        view.setLayoutParams(layoutParams);
     }
 }
 
