@@ -32,22 +32,12 @@
                 android:fitsSystemWindows="true"
                 android:theme="@style/AppTheme.AppBarOverlay">
 
-                <android.support.design.widget.CollapsingToolbarLayout
-                    android:id="@+id/collapsing_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:expandedTitleMarginEnd="64dp"
-                    app:expandedTitleMarginStart="48dp"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
                     <android.support.v4.view.ViewPager
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fitsSystemWindows="true"
-                        app:itemView="@{viewModel.topItemView}"
+                        app:itemBinding="@{viewModel.topItemView}"
                         app:items="@{viewModel.topItemViewModel}" />
 
                     <com.viewpagerindicator.CirclePageIndicator
@@ -70,7 +60,6 @@
                         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
                     <!--android:background="?attr/colorPrimary"-->
 
-                </android.support.design.widget.CollapsingToolbarLayout>
 
 
             </android.support.design.widget.AppBarLayout>

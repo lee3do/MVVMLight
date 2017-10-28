@@ -1,7 +1,6 @@
 package com.kelin.mvvmlight.messenger;
 
 
-import com.google.repacked.antlr.v4.runtime.misc.Nullable;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

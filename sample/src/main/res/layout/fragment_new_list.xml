@@ -8,7 +8,7 @@
             name="viewModel"
             type="com.kelin.mvvmlight.zhihu.news.NewsViewModel" />
 
-        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers" />
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
 
         <import type="android.view.View" />
     </data>
@@ -39,7 +39,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                bind:itemView="@{viewModel.itemView}"
+                bind:itemBinding="@{viewModel.itemView}"
                 bind:items="@{viewModel.itemViewModel}"
                 bind:layoutManager="@{LayoutManagers.linear()}"
                 bind:layout_behavior="@string/appbar_scrolling_view_behavior"

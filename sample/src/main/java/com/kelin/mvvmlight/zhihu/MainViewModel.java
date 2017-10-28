@@ -10,9 +10,7 @@ import com.kelin.mvvmlight.messenger.Messenger;
 import com.kelin.mvvmlight.zhihu.news.NewsViewModel;
 import com.kelin.mvvmlight.zhihu.news.TopNewsService;
 
-import java.util.concurrent.TimeUnit;
-
-import me.tatarka.bindingcollectionadapter.ItemView;
+import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import rx.Observable;
 
 /**
@@ -26,7 +24,7 @@ public class MainViewModel implements ViewModel {
     private Context context;
 
     // viewModel for recycler header viewPager
-    public final ItemView topItemView = ItemView.of(com.kelin.mvvmlight.zhihu.BR.viewModel, R.layout.viewpager_item_top_news);
+    public final ItemBinding<TopItemViewModel> topItemView = ItemBinding.of(com.kelin.mvvmlight.zhihu.BR.viewModel, R.layout.viewpager_item_top_news);
     public final ObservableList<TopItemViewModel> topItemViewModel = new ObservableArrayList<>();
 
 

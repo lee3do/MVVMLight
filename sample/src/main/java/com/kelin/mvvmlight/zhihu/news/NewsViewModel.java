@@ -7,7 +7,6 @@ import android.databinding.ObservableList;
 import android.support.v4.util.Pair;
 import android.widget.Toast;
 
-import com.kelin.mvvmlight.BR;
 import com.kelin.mvvmlight.base.ViewModel;
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.kelin.mvvmlight.messenger.Messenger;
@@ -18,14 +17,15 @@ import com.trello.rxlifecycle.FragmentLifecycleProvider;
 
 import java.util.Calendar;
 
-import me.tatarka.bindingcollectionadapter.BaseItemViewSelector;
-import me.tatarka.bindingcollectionadapter.ItemView;
-import me.tatarka.bindingcollectionadapter.ItemViewSelector;
+import me.tatarka.bindingcollectionadapter2.ItemBinding;
+import me.tatarka.bindingcollectionadapter2.itembindings.OnItemBindModel;
 import rx.Notification;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subjects.BehaviorSubject;
+
+import me.tatarka.bindingcollectionadapter2.BR;
 
 /**
  * Created by kelin on 16-4-25.
@@ -49,15 +49,10 @@ public class NewsViewModel implements ViewModel {
     // viewModel for RecyclerView
     public final ObservableList<NewItemViewModel> itemViewModel = new ObservableArrayList<>();
     // view layout for RecyclerView
-    public final ItemViewSelector<NewItemViewModel> itemView = new BaseItemViewSelector<NewItemViewModel>() {
+    public final OnItemBindModel<NewItemViewModel> itemView = new OnItemBindModel<NewItemViewModel>() {
         @Override
-        public void select(ItemView itemView, int position, NewItemViewModel itemViewModel) {
-            itemView.set(BR.viewModel, itemViewModel.storiesBean.getExtraField() != null ? R.layout.listitem_news_header : R.layout.listitem_news);
-        }
-
-        @Override
-        public int viewTypeCount() {
-            return 2;
+        public void onItemBind(ItemBinding itemBinding, int position, NewItemViewModel item) {
+            itemBinding.set(BR.viewModel, item.storiesBean.getExtraField() != null ? R.layout.listitem_news_header : R.layout.listitem_news);
         }
 
     };

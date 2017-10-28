@@ -2,10 +2,8 @@ package com.kelin.mvvmlight.zhihu;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -33,7 +31,6 @@ public class MainActivity extends RxAppCompatActivity
         super.onCreate(savedInstanceState);
         ViewDataBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setVariable(com.kelin.mvvmlight.zhihu.BR.viewModel, new MainViewModel(this));
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -43,8 +40,6 @@ public class MainActivity extends RxAppCompatActivity
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 int height = appBarLayout.getHeight() - getSupportActionBar().getHeight() - ViewUtils.getStatusBarHeight(MainActivity.this);
                 int alpha = 255 * (0 - verticalOffset) / height;
-                collapsingToolbarLayout.setExpandedTitleColor(Color.argb(0, 255, 255, 255));
-                collapsingToolbarLayout.setCollapsedTitleTextColor(Color.argb(alpha, 255, 255, 255));
             }
         });
 

@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 
-import com.kelin.mvvmlight.base.ViewModel;
 import com.kelin.mvvmlight.command.ReplyCommand;
 import com.kelin.mvvmlight.zhihu.newsdetail.NewsDetailActivity;
+
+import me.tatarka.bindingcollectionadapter2.ItemBinding;
+import me.tatarka.bindingcollectionadapter2.itembindings.ItemBindingModel;
 
 /**
  * Created by kelin on 16-4-26.
  */
-public class NewItemViewModel implements ViewModel {
+public class NewItemViewModel implements ItemBindingModel {
     //context
     private Context context;
 
@@ -24,6 +26,11 @@ public class NewItemViewModel implements ViewModel {
     public final ObservableField<String> imageUrl = new ObservableField<>();
     public final ObservableField<String> date = new ObservableField<>();
     public ViewStyle viewStyle = new ViewStyle();
+
+    @Override
+    public void onItemBind(ItemBinding itemBinding) {
+
+    }
 
     //Use class viewStyle to wrap field which is binding to style of view
     public static class ViewStyle {

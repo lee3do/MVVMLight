@@ -12,14 +12,16 @@ import com.kelin.mvvmlight.command.ReplyCommand;
  */
 public final class ViewBindingAdapter {
 
-    @SuppressWarnings("unchecked")
     @BindingAdapter({"onScrollChangeCommand"})
-    public static void onScrollChangeCommand(final NestedScrollView nestedScrollView, final ReplyCommand<NestScrollDataWrapper> onScrollChangeCommand) {
+    public static void onScrollChangeCommand(final NestedScrollView nestedScrollView, final
+    ReplyCommand<NestScrollDataWrapper> onScrollChangeCommand) {
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int
+                    oldScrollX, int oldScrollY) {
                 if (onScrollChangeCommand != null) {
-                    onScrollChangeCommand.execute(new NestScrollDataWrapper(scrollX, scrollY, oldScrollX, oldScrollY));
+                    onScrollChangeCommand.execute(new NestScrollDataWrapper(scrollX, scrollY,
+                            oldScrollX, oldScrollY));
                 }
             }
         });
@@ -27,12 +29,15 @@ public final class ViewBindingAdapter {
 
     @SuppressWarnings("unchecked")
     @BindingAdapter({"onScrollChangeCommand"})
-    public static void onScrollChangeCommand(final ScrollView scrollView, final ReplyCommand<ScrollDataWrapper> onScrollChangeCommand) {
-        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+    public static void onScrollChangeCommand(final ScrollView scrollView, final
+    ReplyCommand<ScrollDataWrapper> onScrollChangeCommand) {
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver
+                .OnScrollChangedListener() {
             @Override
             public void onScrollChanged() {
                 if (onScrollChangeCommand != null) {
-                    onScrollChangeCommand.execute(new ScrollDataWrapper(scrollView.getScaleX(), scrollView.getScrollY()));
+                    onScrollChangeCommand.execute(new ScrollDataWrapper(scrollView.getScaleX(),
+                            scrollView.getScrollY()));
                 }
             }
         });
